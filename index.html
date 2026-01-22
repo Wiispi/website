@@ -2,9 +2,17 @@
 
 <html>
     <head>
-        <title>Not ready yet!</title>
+        <title>Redirecting...</title>
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
         <link href="style.css" rel="stylesheet">
+        <script>
+            const userLanguage = navigator.language || navigator.userLanguage;
+            if(userLanguage.startsWith('pl')) {
+                window.location.replace('/pl/')
+            } else {
+               window.location.replace('/en/') 
+            }
+        </script>
     </head>
     <body>
         <main>

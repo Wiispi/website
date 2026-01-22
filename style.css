@@ -1,14 +1,288 @@
 body {
-    background-color: #181a1b;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 750px;
+    min-height: 100vh;
+    background: #181a1b;
     color: aliceblue;
     font-family: 'Inter', sans-serif;
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+a {color:aliceblue}
+
+#chosenLang {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color: blue;
 }
 
-#gh {
+#name {
+    font-size: xx-large;
+    color: aliceblue;
+    margin-bottom: 0px;
+    font-weight: 900;
+
+}
+
+#mail {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: rgb(170, 170, 170);
+}
+
+#contactMail {
+    text-align: center;
+}
+#skillList {
+    opacity: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    grid-auto-flow: row;
+    justify-items: center;
+}
+.skill {
+    display: flex;
+    
+    border: 0;
+    border-width: 1px;
+    border-radius: 20px;
+    border-collapse: collapse;
+    background-color: #2b2b2c;
+
+    width: 110px;
+    justify-content: center;
+
+    margin-top: 4px;
+    padding: 8px;
+    transition: transform 0.2s ease-in-out;
+    font-size: large;
+}
+
+.skill:hover {
+
+    transform: scale(1.05)
+}
+
+.gh {
     display: inline;
     text-align: center;
+}
+
+.text {
+    color: rgb(170, 170, 170);
+    line-height:  1.1;
+}
+
+.textCenter {
+    color: rgb(170, 170, 170);
+    line-height:  1.1;
+    text-align: center;
+}
+
+.highlight {
+    color: aliceblue;
+    font-weight: 900;
+}
+
+.sec {
+    margin-top: 10vh;
+    text-align: center;
+}
+
+#contact {
+    margin-top: 10vh;
+    text-align: center;
+}
+
+.title {
+    margin-top: 7px;
+    margin-bottom: 2px;
+
+}
+
+.project {
+    margin-bottom: 4vh;
+}
+
+.projectTwo {
+    margin-bottom: 4vh;
+}
+
+.imageR, .imageL {
+    position: absolute;
+    display: none;
+}
+
+.imageRTwo {
+    position: absolute;
+    display: none;
+}
+
+.imageLTwo {
+    position: absolute;
+    display: none;
+}
+
+#ftr {
+    position: absolute;
+    color: rgb(170, 170, 170);
+    text-align: center;
+    font-size: medium;
+    bottom: 5px;
+    left: 45%;
+    margin: 0;
+    padding: 0;
+}
+
+@media (min-width: 600px) {
+    body {
+        .sec { margin-top: 10vh;}
+        font-size:medium;
+    }
+
+.imageR {
+    position: absolute;
+    display: none;
+}
+
+.imageL {
+    position: absolute;
+    display: none;
+}
+
+.imageRTwo {
+    position: absolute;
+    display: none;
+}
+
+.imageLTwo {
+    position: absolute;
+    display: none;
+}
+}
+
+@media (min-width: 1600px) {
+    body {
+        margin-top: 5vh;
+        margin-left: 10vw;
+        margin-right: 10vw;
+
+        font-size: larger;
+
+    }
+
+    #topSection {
+        scale: 1.2;
+        margin-left: 2.7vw;
+    }
+    
+    .left {
+        width: 30vw;
+    }
+
+    .right {
+        position: absolute;
+        right: 8vw;
+        top: 3vh;
+        width: 25vw;
+    }
+
+    .sec {
+        margin-top: 5vh;
+        text-align: left;
+    }
+    
+    #about {
+        margin-top: 4vh;
+        text-align: left;
+    }
+
+    .skill {
+        width: 8vw;
+    }
+
+    #contact {
+        margin-top: 5vh;
+        text-align: center;
+    }
+
+    .imageR {
+        position: absolute;
+
+        right: 32vw;
+        top: 28vh;
+        max-width: auto;
+        max-height: 80%;
+
+        display: flex;
+        transition: 0.5s ease-in-out;
+        opacity: 0;
+        mask-image: radial-gradient( circle at center,black 0%,transparent 100%);
+}
+    .imageL {
+        position: absolute;
+
+        right: 50vw;
+        top: 57vh;
+        max-width: 120%;
+        max-height: auto;
+        
+        display: flex;
+
+        transition: 0.5s ease-in-out;
+        opacity: 0;
+        mask-image: radial-gradient( circle at center,black 0%,transparent 100%);
+    }
+
+
+
+    
+    .project:hover .imageL, .project:hover .imageR {
+        opacity: 0.6;
+    }
+
+    .imageRTwo {
+        position: absolute;
+
+        right: 28vw;
+        top: 31vh;
+        max-width: auto;
+        max-height: 80%;
+
+        display: flex;
+        transition: 0.5s ease-in-out;
+        opacity: 0;
+        mask-image: radial-gradient( circle at center,black 0%,transparent 100%);
+}
+    .imageLTwo {
+        position: absolute;
+
+        right: 48vw;
+        top: 57vh;
+        max-width: 100%;
+        max-height: auto;
+        
+        display: flex;
+
+        transition: 0.5s ease-in-out;
+        opacity: 0;
+        mask-image: radial-gradient( circle at center,black 0%,transparent 100%);
+    }
+
+    
+    .projectTwo:hover .imageLTwo, .projectTwo:hover .imageRTwo {
+        opacity: 1;
+    }
+
+    .imageL, .imageR, .imageLTwo, .imageRTwo {
+        pointer-events: none;
+}
+}
+
+
+@media (min-width: 2400px) { 
+    body {
+        font-size: x-large;
+    }
 }
