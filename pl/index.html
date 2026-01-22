@@ -2,10 +2,39 @@
 
 <html>
     <head>
-        <title>Witaj :)</title>
+        <title>Cześć :)</title>
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
         <link href="../style.css" rel="stylesheet">
-
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function() {
+                // https://dashboard.emailjs.com/admin/account
+                emailjs.init({
+                publicKey: "Al2s6cKkTnMHTWkPQ",
+                });
+            })();
+        </script>
+        <script type="text/javascript">
+            window.onload = function() {
+                document.getElementById('contact-form').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    // these IDs from the previous steps
+                    emailjs.sendForm('service_w1v2zjl', 'template_6f5urzd', this)
+                        .then(() => {
+                            alert("Wiadomość wysłana. Postaram się szybko odpowiedzieć :)")
+                            console.log('SUCCESS!');
+                        }, (error) => {
+                            alert("Wystąpił błąd. Proszę, wyślij wiadomość bezpośrednio na adres dawid.halajda03@Gmail.com, lub spróbuj ponownie później.")
+                            console.log('FAILED...', error);
+                        });
+                });
+            }
+        </script>
+        <script>
+            sentAlert = () => {
+                alert("")
+            }
+        </script>
     </head>
     <body>
         <header>
@@ -29,7 +58,7 @@
                     <span class="text">Szukam możliwości na rozwój umiejętności i pozostaję otwarty na nowe opcje w tej, i w pokrewnych dziedzinach.</span>
                     <p class="text">Mam doświadczenie głównie w zakresie <strong class="highlight">obsługi klienta</strong> oraz, w mniejszym stopniu, w zakresie <strong class="highlight">wsparcia technicznego</strong>. W przeszłości pracowałem na tych stanowiskach dla dużych firm, takich jak <strong class="highlight">Allegro</strong>, czy <strong class="highlight">Vectra</strong>.
                     <p class="text">Poza technologią, kocham kofeinę, gitarę i najróżniejsze gry komputerowe.</p>
-                    <h2>Narzędzia & technologia, których używam</h2>
+                    <h2>Narzędzia i technologie, których używam</h2>
                     <div id="skillList">
                         <p class="skill">React</p>
                         <p class="skill">NodeJS</p>
@@ -67,8 +96,20 @@
                 </section>
                 <section>
                     <h1 id="contact">Kontakt</h1>
-                    <p class="textCenter">W razie pytań, lub potencjalnej współpracy, zachęcam do kontaktu przez poniższy adres email. Zwykle odpowiadam bardzo szybko :)</p>
+                    <p class="textCenter">W razie pytań, lub potencjalnej współpracy, zachęcam do kontaktu na adres <strong class="highlight">dawid.halajda03@Gmail.com</strong>, lub przez poniższy formularz. Zwykle odpowiadam bardzo szybko :)</p>
                     <p id="contactMail">dawid.halajda03@Gmail.com</p>
+                    <form id="contact-form">
+                        <input id="inputForm" type="hidden" name="time" value="Mar 10 2025 08:46">
+                        <label>Imię i nazwisko</label>
+                        <input id="inputForm" type="text" name="name" required>
+                        <label>Email</label>
+                        <input id="inputForm" type="email" name="email" required>
+                        <label>Temat</label>
+                        <input id="inputForm" type="text" name="title" required>
+                        <label>Wiadomość</label>
+                        <textarea id="textInput" name="message" required></textarea>
+                        <input id="submitButton" type="submit" value="Wyślij">
+                    </form>
                 </section>
             </section>
         </main>

@@ -6,6 +6,31 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
         <link href="../style.css" rel="stylesheet">
 
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function() {
+                // https://dashboard.emailjs.com/admin/account
+                emailjs.init({
+                publicKey: "Al2s6cKkTnMHTWkPQ",
+                });
+            })();
+        </script>
+        <script type="text/javascript">
+            window.onload = function() {
+                document.getElementById('contact-form').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    // these IDs from the previous steps
+                    emailjs.sendForm('service_w1v2zjl', 'template_6f5urzd', this)
+                        .then(() => {
+                            alert("Message sent. I'll try to reply quickly :)")
+                            console.log('SUCCESS!');
+                        }, (error) => {
+                            alert("An error has occurred. Please send your message directly to dawid.halajda03@Gmail.com, or try again later.")
+                            console.log('FAILED...', error);
+                        });
+                });
+            }
+        </script>
     </head>
     <body>
         <header>
@@ -67,8 +92,19 @@
                 </section>
                 <section>
                     <h1 id="contact">Contact</h1>
-                    <p class="textCenter">I'll be happy to get in touch! Feel free to contact me at the following email adress.</p>
-                    <p id="contactMail">dawid.halajda03@Gmail.com</p>
+                    <p class="textCenter">I'll be happy to get in touch! Feel free to contact me  at <strong class="highlight">dawid.halajda03@Gmail.com</strong>, or via the form below.</p>
+                    <form id="contact-form">
+                        <input id="inputForm" type="hidden" name="time" value="Mar 10 2025 08:46">
+                        <label>Name</label>
+                        <input id="inputForm" type="text" name="name" required>
+                        <label>Email</label>
+                        <input id="inputForm" type="email" name="email" required>
+                        <label>Subject</label>
+                        <input id="inputForm" type="text" name="title" required>
+                        <label>Message</label>
+                        <textarea id="textInput" name="message" required></textarea>
+                        <input id="submitButton" type="submit" value="Send">
+                    </form>
                 </section>
             </section>
         </main>
