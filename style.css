@@ -133,7 +133,6 @@ a {color:aliceblue}
 }
 
 .skill:hover {
-
     transform: scale(1.05)
 }
 
@@ -187,12 +186,12 @@ a {color:aliceblue}
     display: none;
 }
 
-.imageRTwo {
+.imageRTwo, .imageLTwo {
     position: absolute;
     display: none;
 }
 
-.imageLTwo {
+.imageRThree {
     position: absolute;
     display: none;
 }
@@ -211,7 +210,7 @@ a {color:aliceblue}
 @media (min-width: 600px) {
     body {
         .sec { margin-top: 10vh;}
-        font-size:medium;
+        font-size:large;
     }
 
 .imageR {
@@ -349,7 +348,26 @@ a {color:aliceblue}
         opacity: 1;
     }
 
-    .imageL, .imageR, .imageLTwo, .imageRTwo {
+
+    .imageRThree {
+        position: absolute;
+
+        right: 29vw;
+        top: 37vh;
+        max-width: auto;
+        max-height: 65%;
+
+        display: flex;
+        transition: 0.5s ease-in-out;
+        opacity: 0;
+        mask-image: radial-gradient( circle at center,black 0%,transparent 100%);
+}
+
+    .projectThree:hover .imageRThree {
+        opacity: 1;
+    }
+
+    .imageL, .imageR, .imageLTwo, .imageRTwo, .imageRThree {
         pointer-events: none;
 }
 
